@@ -1,0 +1,12 @@
+C:\git\territory_tools\operation-by-territory\bin\Debug\operation-by-territory.exe.config
+C:\git\territory_tools\operation-by-territory\bin\Debug\operation-by-territory.exe
+C:\git\territory_tools\operation-by-territory\bin\Debug\operation-by-territory.pdb
+C:\git\territory_tools\operation-by-territory\bin\Debug\EntityFramework.dll
+C:\git\territory_tools\operation-by-territory\bin\Debug\EntityFramework.SqlServer.dll
+C:\git\territory_tools\operation-by-territory\bin\Debug\EntityFramework.xml
+C:\git\territory_tools\operation-by-territory\bin\Debug\EntityFramework.SqlServer.xml
+C:\git\territory_tools\operation-by-territory\obj\Debug\operation-by-territory.csprojAssemblyReference.cache
+C:\git\territory_tools\operation-by-territory\obj\Debug\operation-by-territory.csproj.CoreCompileInputs.cache
+C:\git\territory_tools\operation-by-territory\obj\Debug\operation-by-territory.csproj.CopyComplete
+C:\git\territory_tools\operation-by-territory\obj\Debug\operation-by-territory.exe
+C:\git\territory_tools\operation-by-territory\obj\Debug\operation-by-territory.pdb

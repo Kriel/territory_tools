@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LetterWritingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TerritoryPoint">
+    <Key>
+      <PropertyRef Name="PointId" />
+    </Key>
+    <Property Name="PointId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TerritoryType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TerritoryNumber" Type="Int32" Nullable="false" />
+    <Property Name="Lat" Type="Decimal" Precision="19" Scale="15" Nullable="false" />
+    <Property Name="Long" Type="Decimal" Precision="19" Scale="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClarkAddress">
+    <Key>
+      <PropertyRef Name="LON" />
+      <PropertyRef Name="LAT" />
+    </Key>
+    <Property Name="LON" Type="Decimal" Precision="19" Scale="15" Nullable="false" />
+    <Property Name="LAT" Type="Decimal" Precision="19" Scale="15" Nullable="false" />
+    <Property Name="NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="STREET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DISTRICT" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="REGION" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="POSTCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HASH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="letter_writingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TerritoryPoints" EntityType="Self.TerritoryPoint" />
+    <EntitySet Name="ClarkAddresses" EntityType="Self.ClarkAddress" />
+  </EntityContainer>
+</Schema>

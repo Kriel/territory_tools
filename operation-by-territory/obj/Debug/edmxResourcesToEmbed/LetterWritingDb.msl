@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LetterWritingModelStoreContainer" CdmEntityContainer="letter_writingEntities">
+    <EntitySetMapping Name="TerritoryPoints">
+      <EntityTypeMapping TypeName="LetterWritingModel.TerritoryPoint">
+        <MappingFragment StoreEntitySet="TerritoryPoints">
+          <ScalarProperty Name="PointId" ColumnName="PointId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TerritoryType" ColumnName="TerritoryType" />
+          <ScalarProperty Name="TerritoryNumber" ColumnName="TerritoryNumber" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="Long" ColumnName="Long" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClarkAddresses">
+      <EntityTypeMapping TypeName="LetterWritingModel.ClarkAddress">
+        <MappingFragment StoreEntitySet="ClarkAddresses">
+          <ScalarProperty Name="LON" ColumnName="LON" />
+          <ScalarProperty Name="LAT" ColumnName="LAT" />
+          <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+          <ScalarProperty Name="STREET" ColumnName="STREET" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
+          <ScalarProperty Name="REGION" ColumnName="REGION" />
+          <ScalarProperty Name="POSTCODE" ColumnName="POSTCODE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HASH" ColumnName="HASH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

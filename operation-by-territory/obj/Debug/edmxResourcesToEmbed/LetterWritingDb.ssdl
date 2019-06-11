@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LetterWritingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'letter_writing.dbo.ClarkAddresses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ClarkAddresses">
+    <Key>
+      <PropertyRef Name="LON" />
+      <PropertyRef Name="LAT" />
+    </Key>
+    <Property Name="LON" Type="decimal" Precision="19" Scale="15" Nullable="false" />
+    <Property Name="LAT" Type="decimal" Precision="19" Scale="15" Nullable="false" />
+    <Property Name="NUMBER" Type="nvarchar" MaxLength="50" />
+    <Property Name="STREET" Type="nvarchar" MaxLength="50" />
+    <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
+    <Property Name="CITY" Type="nvarchar" MaxLength="50" />
+    <Property Name="DISTRICT" Type="nvarchar" MaxLength="1" />
+    <Property Name="REGION" Type="nvarchar" MaxLength="1" />
+    <Property Name="POSTCODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="HASH" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TerritoryPoints">
+    <Key>
+      <PropertyRef Name="PointId" />
+    </Key>
+    <Property Name="PointId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TerritoryType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TerritoryNumber" Type="int" Nullable="false" />
+    <Property Name="Lat" Type="decimal" Precision="19" Scale="15" Nullable="false" />
+    <Property Name="Long" Type="decimal" Precision="19" Scale="15" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="LetterWritingModelStoreContainer">
+    <EntitySet Name="TerritoryPoints" EntityType="Self.TerritoryPoints" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClarkAddresses" EntityType="Self.ClarkAddresses" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ClarkAddresses].[LON] AS [LON], 
+    [ClarkAddresses].[LAT] AS [LAT], 
+    [ClarkAddresses].[NUMBER] AS [NUMBER], 
+    [ClarkAddresses].[STREET] AS [STREET], 
+    [ClarkAddresses].[UNIT] AS [UNIT], 
+    [ClarkAddresses].[CITY] AS [CITY], 
+    [ClarkAddresses].[DISTRICT] AS [DISTRICT], 
+    [ClarkAddresses].[REGION] AS [REGION], 
+    [ClarkAddresses].[POSTCODE] AS [POSTCODE], 
+    [ClarkAddresses].[ID] AS [ID], 
+    [ClarkAddresses].[HASH] AS [HASH]
+    FROM [dbo].[ClarkAddresses] AS [ClarkAddresses]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LetterWritingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'letter_writing.dbo.ClarkAddresses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ClarkAddresses">
+          <Key>
+            <PropertyRef Name="LON" />
+            <PropertyRef Name="LAT" />
+          </Key>
+          <Property Name="LON" Type="decimal" Precision="19" Scale="15" Nullable="false" />
+          <Property Name="LAT" Type="decimal" Precision="19" Scale="15" Nullable="false" />
+          <Property Name="NUMBER" Type="nvarchar" MaxLength="50" />
+          <Property Name="STREET" Type="nvarchar" MaxLength="50" />
+          <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
+          <Property Name="CITY" Type="nvarchar" MaxLength="50" />
+          <Property Name="DISTRICT" Type="nvarchar" MaxLength="1" />
+          <Property Name="REGION" Type="nvarchar" MaxLength="1" />
+          <Property Name="POSTCODE" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="HASH" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TerritoryPoints">
+          <Key>
+            <PropertyRef Name="PointId" />
+          </Key>
+          <Property Name="PointId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TerritoryType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TerritoryNumber" Type="int" Nullable="false" />
+          <Property Name="Lat" Type="decimal" Precision="19" Scale="15" Nullable="false" />
+          <Property Name="Long" Type="decimal" Precision="19" Scale="15" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="LetterWritingModelStoreContainer">
+          <EntitySet Name="TerritoryPoints" EntityType="Self.TerritoryPoints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClarkAddresses" EntityType="Self.ClarkAddresses" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ClarkAddresses].[LON] AS [LON], 
+    [ClarkAddresses].[LAT] AS [LAT], 
+    [ClarkAddresses].[NUMBER] AS [NUMBER], 
+    [ClarkAddresses].[STREET] AS [STREET], 
+    [ClarkAddresses].[UNIT] AS [UNIT], 
+    [ClarkAddresses].[CITY] AS [CITY], 
+    [ClarkAddresses].[DISTRICT] AS [DISTRICT], 
+    [ClarkAddresses].[REGION] AS [REGION], 
+    [ClarkAddresses].[POSTCODE] AS [POSTCODE], 
+    [ClarkAddresses].[ID] AS [ID], 
+    [ClarkAddresses].[HASH] AS [HASH]
+    FROM [dbo].[ClarkAddresses] AS [ClarkAddresses]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LetterWritingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TerritoryPoint">
+          <Key>
+            <PropertyRef Name="PointId" />
+          </Key>
+          <Property Name="PointId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TerritoryType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TerritoryNumber" Type="Int32" Nullable="false" />
+          <Property Name="Lat" Type="Decimal" Precision="19" Scale="15" Nullable="false" />
+          <Property Name="Long" Type="Decimal" Precision="19" Scale="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClarkAddress">
+          <Key>
+            <PropertyRef Name="LON" />
+            <PropertyRef Name="LAT" />
+          </Key>
+          <Property Name="LON" Type="Decimal" Precision="19" Scale="15" Nullable="false" />
+          <Property Name="LAT" Type="Decimal" Precision="19" Scale="15" Nullable="false" />
+          <Property Name="NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STREET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DISTRICT" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="REGION" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="POSTCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HASH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="letter_writingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TerritoryPoints" EntityType="Self.TerritoryPoint" />
+          <EntitySet Name="ClarkAddresses" EntityType="Self.ClarkAddress" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LetterWritingModelStoreContainer" CdmEntityContainer="letter_writingEntities">
+          <EntitySetMapping Name="TerritoryPoints">
+            <EntityTypeMapping TypeName="LetterWritingModel.TerritoryPoint">
+              <MappingFragment StoreEntitySet="TerritoryPoints">
+                <ScalarProperty Name="PointId" ColumnName="PointId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TerritoryType" ColumnName="TerritoryType" />
+                <ScalarProperty Name="TerritoryNumber" ColumnName="TerritoryNumber" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Long" ColumnName="Long" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClarkAddresses">
+            <EntityTypeMapping TypeName="LetterWritingModel.ClarkAddress">
+              <MappingFragment StoreEntitySet="ClarkAddresses">
+                <ScalarProperty Name="LON" ColumnName="LON" />
+                <ScalarProperty Name="LAT" ColumnName="LAT" />
+                <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+                <ScalarProperty Name="STREET" ColumnName="STREET" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="DISTRICT" ColumnName="DISTRICT" />
+                <ScalarProperty Name="REGION" ColumnName="REGION" />
+                <ScalarProperty Name="POSTCODE" ColumnName="POSTCODE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HASH" ColumnName="HASH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
