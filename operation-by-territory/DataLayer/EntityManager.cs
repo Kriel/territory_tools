@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using operation_by_territory.IntersectionAlgorithm;
 
 namespace operation_by_territory.DataLayer
 {
@@ -26,6 +27,23 @@ namespace operation_by_territory.DataLayer
             finally
             {
                 Console.WriteLine($"Leaving {nameof(GetTerritoryPoints)}");
+            }
+        }
+
+        public List<ClarkAddress> AddressesInLatLongBox(Point minPoint, Point maxPoint)
+        {
+            try
+            {
+                Console.WriteLine($"Entering {nameof(AddressesInLatLongBox)}");
+                var context = new letter_writingEntities();
+                var addressesQuery = context.ClarkAddresses.Where(ca => ca.LAT >= minPoint.Lat && ca.LAT <= maxPoint.Lat && ca.LON >= minPoint.Long && ca.LON <= maxPoint.Long);
+
+                Console.WriteLine(addressesQuery.Count());
+                return addressesQuery.ToList();
+            }
+            finally
+            {
+                Console.WriteLine($"Leaving {nameof(AddressesInLatLongBox)}");
             }
         }
     }

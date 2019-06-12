@@ -56,6 +56,7 @@
       <DependentUpon>LetterWritingDb.tt</DependentUpon>
     </Compile>
     <Compile Include="DataLayer\EntityManager.cs" />
+    <Compile Include="IntersectionAlgorithm\Point.cs" />
     <Compile Include="LetterWritingDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
